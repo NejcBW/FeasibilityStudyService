@@ -1,0 +1,25 @@
+﻿@page "/"
+@using WeatherGen
+@inject Services.EPWService EPWService
+@inject State State
+
+@if (State.EPW == null)
+{
+    <h1>Load data</h1>
+}
+else
+{
+    <h1>City: @State.EPW.Location.City</h1>
+}
+
+<button @onclick="LoadEPWData">Load data</button>
+
+
+@code{
+
+    public async Task LoadEPWData()
+    {
+        State.EPW = await EPWService.GetEPW();
+        State.EPWLoaded = true;
+    }
+}

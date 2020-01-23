@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using WeatherGen
+@using System.Diagnostics
 @inject Services.EPWService EPWService
 @inject State State
 
@@ -19,7 +20,11 @@ else
 
     public async Task LoadEPWData()
     {
+        var sw = new Stopwatch();
+        sw.Start();
         State.EPW = await EPWService.GetEPW();
+        sw.Stop();
         State.EPWLoaded = true;
+        System.Console.WriteLine($"EPW fetching and loading time: {sw.Elapsed}");
     }
 }

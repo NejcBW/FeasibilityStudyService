@@ -13,20 +13,22 @@ namespace Client
         {
             var host = CreateHostBuilder(args).Build();
 
-            using (var serviceScope = host.Services.CreateScope())
-            {
-                var services = serviceScope.ServiceProvider;
+            // This code injects an instance of the State
+            // class into the app at startup
+            using var serviceScope = host.Services.CreateScope();
 
-                try
-                {
-                    var state = services.GetRequiredService<State>();
-                }
-                catch (Exception ex)
-                {
-                    var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred.");
-                }
+            var services = serviceScope.ServiceProvider;
+
+            try
+            {
+                var state = services.GetRequiredService<State>();
             }
+            catch (Exception ex)
+            {
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                logger.LogError(ex, "An error occurred.");
+            }
+
 
             host.Run();
 

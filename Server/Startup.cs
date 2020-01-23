@@ -58,7 +58,8 @@ namespace Server
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -66,6 +67,7 @@ namespace Server
                 endpoints.MapDefaultControllerRoute();
                 endpoints.MapFallbackToClientSideBlazor<Client.Startup>("index.html");
             });
+
         }
     }
 }

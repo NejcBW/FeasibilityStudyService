@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using WeatherGen;
 using Microsoft.AspNetCore.Components;
+using System.Net.Http.Json;
 
 namespace Client.Services
 {
@@ -19,7 +20,8 @@ namespace Client.Services
 
         public async Task<EPW> GetEPW()
         {
-            var epw = await _http.GetJsonAsync<EPW>("/EPW");
+            //var epw = await _http.GetJsonAsync<EPW>("/EPW");
+            var epw = await _http.GetFromJsonAsync<EPW>("/EPW");
             Console.WriteLine($"City: {epw.Location.City}");
             return epw;
         }

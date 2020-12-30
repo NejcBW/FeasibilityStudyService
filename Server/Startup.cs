@@ -48,11 +48,11 @@ namespace Server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBlazorDebugging();
+                app.UseWebAssemblyDebugging();
             }
 
             app.UseStaticFiles();
-            app.UseClientSideBlazorFiles<Client.Startup>();
+            app.UseBlazorFrameworkFiles();
 
             app.UseHttpsRedirection();
 
@@ -65,7 +65,7 @@ namespace Server
             {
                 //endpoints.MapControllers();
                 endpoints.MapDefaultControllerRoute();
-                endpoints.MapFallbackToClientSideBlazor<Client.Startup>("index.html");
+                endpoints.MapFallbackToFile("index.html");
             });
 
         }

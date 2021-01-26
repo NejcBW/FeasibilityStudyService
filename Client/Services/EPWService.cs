@@ -20,7 +20,6 @@ namespace Client.Services
 
         public async Task<EPW> GetEPW()
         {
-            //var epw = await _http.GetJsonAsync<EPW>("/EPW");
             var epw = await _http.GetFromJsonAsync<EPW>("/EPW");
             Console.WriteLine($"City: {epw.Location.City}");
             return epw;

@@ -1,10 +1,124 @@
-﻿<Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-    </Found>
-    <NotFound>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <p>Sorry, there's nothing at this address.</p>
-        </LayoutView>
-    </NotFound>
-</Router>
+﻿@using WeatherGen
+@using System.Diagnostics
+@using System.Linq
+@inject Services.EPWService EPWService
+@inject State State
+
+@if (State.EPW == null)
+{
+    <h1>Load data</h1>
+}
+else 
+{
+    <h1>City: @State.EPW.Location.City</h1>
+    <Chart @ref="_lineChartJs" Config="@_lineConfig" Width="600" Height="300" />
+}
+
+@code{
+  
+    private LineConfig _lineConfig;
+
+    private Chart _lineChartJs;
+
+    private LineDataset<Point> _dryBulbTempSet;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var sw = new Stopwatch();
+        sw.Start();
+        
+        State.EPW = await EPWService.GetEPW();
+        Console.WriteLine($"After EPW loading: {sw.Elapsed}");
+        sw.Stop();
+        State.EPWLoaded = true;
+        System.Console.WriteLine($"EPW fetching and loading time: {sw.Elapsed}");
+        sw.Reset();
+        
+        if (State.EPWLoaded == true)
+        {
+            sw.Start();
+            _lineConfig = new LineConfig
+            {
+                Options = new LineOptions
+                {
+                    Responsive = true,
+                    Title = new OptionsTitle
+                    {
+                        Display = true,
+                        Text = $"Dry Bulb Temperature Chart, City: {State.EPW.Location.City}"
+                    },
+                    Legend = new Legend
+                    {
+                        Position = Position.Right,
+                        Labels = new LegendLabels
+                        {
+                            UsePointStyle = true
+                        }
+                    },
+                    Tooltips = new Tooltips
+                    {
+                        Mode = InteractionMode.Nearest,
+                        Intersect = false
+                    },
+                    Scales = new Scales
+                    {
+                        XAxes = new List<CartesianAxis>
+                {
+                        new LinearCartesianAxis
+                        {
+                            ScaleLabel = new ScaleLabel
+                            {
+                                LabelString = "Hour"
+                            },
+                            GridLines = new GridLines
+                            {
+                                Display = false
+                            },
+                            Ticks = new LinearCartesianTicks
+                            {
+                                SuggestedMin = -2
+                            }
+                        }
+                    },
+                        YAxes = new List<CartesianAxis>
+                {
+                        new LinearCartesianAxis
+                        {
+                            ScaleLabel = new ScaleLabel
+                            {
+                                LabelString = "Dry Bulb"
+                            }
+                        }
+                    }
+                    },
+                    Hover = new Hover
+                    {
+                        Intersect = true,
+                        Mode = InteractionMode.Y
+                    }
+                }
+            };
+
+            _dryBulbTempSet = new LineDataset<Point>
+            {
+                BackgroundColor = ColorUtil.ColorString(0, 255, 0, 1.0),
+                BorderColor = ColorUtil.ColorString(0, 0, 255, 1.0),
+                Label = "Temp (C)",
+                Fill = false,
+                PointBackgroundColor = ColorUtil.RandomColorString(),
+                BorderWidth = 1,
+                PointRadius = 3,
+                PointBorderWidth = 1,
+                SteppedLine = SteppedLine.False,
+            };
+
+            _dryBulbTempSet.AddRange(State.EPW.Data.Select(p => new Point(p.Id, p.DryBulb)));
+
+            _lineConfig.Data.Datasets.Add(_dryBulbTempSet);
+            sw.Stop();
+            System.Console.WriteLine($"Chart loading time: {sw.Elapsed}");
+        }
+
+
+    }
+}

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\nejcb\.nuget\packages\chartjs.blazor\1.0.3\contentFiles\any\netstandard2.0\Properties\launchSettings.json" t="Include" />
+    <e p="C:\Users\nejcb\.nuget\packages\chartjs.blazor.fork\2.0.0\contentFiles\any\netstandard2.1\Properties\launchSettings.json" t="Include" />
+    <e p="C:\Users\nejcb\.nuget\packages\chartjs.blazor.fork\2.0.0\contentFiles\any\netstandard2.1\wwwroot\ChartJsBlazorInterop.js" t="Include" />
+    <e p="C:\Users\nejcb\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\nejcb\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_FeasibilityStudyService.1380793638.00" t="ExcludeRecursive" />
+    <e p="C:\Users\nejcb\code\FeasibilityStudyService" t="IncludeFlat">
+      <e p="Client" t="IncludeRecursive">
+        <e p="_Imports.razor" t="Include" />
+        <e p="App.razor" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Client.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Client.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Pages" t="Include">
+          <e p="Counter.razor" t="Include" />
+          <e p="FetchData.razor" t="Include" />
+          <e p="Index.razor" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include" />
+        <e p="Services" t="Include">
+          <e p="EPWService.cs" t="Include" />
+        </e>
+        <e p="Shared" t="Include">
+          <e p="MainLayout.razor" t="Include" />
+          <e p="NavMenu.razor" t="Include" />
+          <e p="SurveyPrompt.razor" t="Include" />
+        </e>
+        <e p="State.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="bootstrap.min.css" t="Include" />
+              <e p="bootstrap.min.css.map" t="Include" />
+            </e>
+            <e p="open-iconic" t="Include">
+              <e p="font" t="Include">
+                <e p="css" t="Include">
+                  <e p="open-iconic-bootstrap.min.css" t="Include" />
+                </e>
+                <e p="fonts" t="Include">
+                  <e p="open-iconic.eot" t="Include" />
+                  <e p="open-iconic.otf" t="Include" />
+                  <e p="open-iconic.svg" t="Include" />
+                  <e p="open-iconic.ttf" t="Include" />
+                  <e p="open-iconic.woff" t="Include" />
+                </e>
+              </e>
+              <e p="FONT-LICENSE" t="Include" />
+              <e p="ICON-LICENSE" t="Include" />
+              <e p="README.md" t="Include" />
+            </e>
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="index.html" t="Include" />
+          <e p="sample-data" t="Include">
+            <e p="weather.json" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="FeasibilityStudyService.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Server" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="EPWController.cs" t="Include" />
+          <e p="TestController.cs" t="Include" />
+        </e>
+        <e p="Foo.cs" t="Include" />
+        <e p="IFoo.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Server.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Server.csproj" t="IncludeRecursive" />
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="styles.css" t="Include" />
+          </e>
+          <e p="fetch.html" t="Include" />
+          <e p="scripts" t="Include">
+            <e p="fetchCharts.js" t="Include" />
+            <e p="index.js" t="Include" />
+          </e>
+          <e p="WeatherFiles" t="Include">
+            <e p="WAW.epw" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="WeatherGen" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EPW.cs" t="Include" />
+        <e p="Location.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="WeatherGen.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Record.cs" t="Include" />
+        <e p="WeatherGen.csproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

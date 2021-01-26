@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="ChartJs.Blazor" Version="1.0.3" />
+    <PackageReference Include="ChartJs.Blazor.Fork" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.1" PrivateAssets="all" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
@@ -13,6 +14,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WeatherGen\WeatherGen.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Chart1.razor" />
   </ItemGroup>
 
 </Project>
